@@ -87,7 +87,7 @@ impl<U: UarteInstance> interrupt::typelevel::Handler<U::Interrupt> for Interrupt
                 r.errorsrc().write_value(errs);
 
                 if errs.overrun() {
-                    panic!("BufferedUarte overrun");
+                    defmt::warn!("BufferedUarte overrun");
                 }
             }
 
